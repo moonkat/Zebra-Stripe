@@ -6,10 +6,11 @@
 	stripeHoverClass="" Just as the name implies, you can specify whether the row has a rollover class, to highlight on hover for example.
 */
 	$("[stripeClass]").each( function() {
-		var stripeClass = $(this).attr("stripeClass");
-		var stripeRow = $(this).attr("stripeRow");
-		var evenRow = $(this).find("tr:even");
-		var oddRow = $(this).find("tr:odd");
+		var me = $(this);
+		var stripeClass = me.attr("stripeClass");
+		var stripeRow = me.attr("stripeRow");
+		var evenRow = me.find("tr:even");
+		var oddRow = me.find("tr:odd");
 		if (stripeClass) {
 			if (stripeRow == "even") {
 				$(evenRow).addClass(stripeClass);
@@ -25,19 +26,20 @@
 		}
 	});
 	$("[stripeHoverClass]").each(function(){
-		var stripeClass = $(this).attr("stripeClass"); 
-		var stripeHoverClass = $(this).attr("stripeHoverClass");
-		var stripeRow = $(this).attr("stripeRow");
-		var evenRow = $(this).find("tr:even");
-		var oddRow = $(this).find("tr:odd");
-		var tableRow = $(this).find("tr");
+		var me = $(this);
+		var stripeClass = me.attr("stripeClass"); 
+		var stripeHoverClass = me.attr("stripeHoverClass");
+		var stripeRow = me.attr("stripeRow");
+		var evenRow = me.find("tr:even");
+		var oddRow = me.find("tr:odd");
+		var tableRow = me.find("tr");
 		$(tableRow).mouseover(function(){
 			if (stripeRow == "even") {
-				$(this).removeClass(stripeClass);
+				me.removeClass(stripeClass);
 				} else {
-				$(this).removeClass(stripeClass);
+				me.removeClass(stripeClass);
 			}
-			$(this).addClass(stripeHoverClass);
+			me.addClass(stripeHoverClass);
 			})
 		.mouseout(function(){
 			if (stripeRow == "even") {
@@ -45,6 +47,6 @@
 				} else {
 				$(oddRow).addClass(stripeClass);
 			}
-			$(this).removeClass(stripeHoverClass);
+			me.removeClass(stripeHoverClass);
 			});
 	});
