@@ -5,6 +5,9 @@
 	stripeRow="even/odd"
 	stripeHoverClass="" Just as the name implies, you can specify whether the row has a rollover class, to highlight on hover for example.
 */
+	
+// Necessary files: jquery.js	
+	
 	$("[stripeClass]").each( function() {
 		var me = $(this);
 		var stripeClass = me.attr("stripeClass");
