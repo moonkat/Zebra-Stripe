@@ -1,13 +1,13 @@
 // Stripe Tag Function
 // Use this to make tables stripy
 /* Tags:
-	stripeClass="class name"
+	stripeClass="class na$(this)"
 	stripeRow="even/odd"
-	stripeHoverClass="" Just as the name implies, you can specify whether the row has a rollover class, to highlight on hover for example.
+	stripeHoverClass="" Just as the na$(this) implies, you can specify whether the row has a rollover class, to highlight on hover for example.
 */
 	
 // Necessary files: jquery.js	
-	
+$(document).ready(function() {
 	$("[stripeClass]").each( function() {
 		var me = $(this);
 		var stripeClass = me.attr("stripeClass");
@@ -38,11 +38,11 @@
 		var tableRow = me.find("tr");
 		$(tableRow).mouseover(function(){
 			if (stripeRow == "even") {
-				me.removeClass(stripeClass);
+				$(this).removeClass(stripeClass);
 				} else {
-				me.removeClass(stripeClass);
+				$(this).removeClass(stripeClass);
 			}
-			me.addClass(stripeHoverClass);
+			$(this).addClass(stripeHoverClass);
 			})
 		.mouseout(function(){
 			if (stripeRow == "even") {
@@ -50,6 +50,7 @@
 				} else {
 				$(oddRow).addClass(stripeClass);
 			}
-			me.removeClass(stripeHoverClass);
+			$(this).removeClass(stripeHoverClass);
 			});
 	});
+});
